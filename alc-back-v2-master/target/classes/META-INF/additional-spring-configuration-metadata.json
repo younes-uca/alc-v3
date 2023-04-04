@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "google.secret.key.path",
+      "type": "java.lang.String",
+      "description": "Description for google.secret.key.path."
+  }
+] }

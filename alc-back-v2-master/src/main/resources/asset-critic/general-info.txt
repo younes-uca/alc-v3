@@ -1,0 +1,14 @@
+URL BACK ::
+https://github.com/younes-uca/alc-back-v2
+
+URL FRONT ::
+https://github.com/younes-uca/alc-front-v2
+
+cloudflare ::
+https://dash.cloudflare.com/e7ef69930bd5ced798093e485fcc0eb5
+cloudflare: ####### email :engflexy.contact@gmail.com  #########  pass: engflexy@2022
+
+
+OVH::
+https://ca.ovh.com/auth/?action=disconnect&onsuccess=https%3A%2F%2Fca.ovh.com%2Fmanager%2F%23%2Fweb%2Fdomain%2Fengflexy.com%2Finformation
+####email: hzouani6@gmail.com #########Pass: anaKhalid@2022

@@ -1,0 +1,844 @@
+#admin,responsable-commande,responsable-preparation,responsable-reception,responsable-livraison,responsable-distribution
+#--------------------------Commande----------------------
+
+
+
+WorkloadBonusProf(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  prof: Prof
+  workloadBonus: WorkloadBonus
+  salary: Salary
+  mois: Integer
+  annee: Integer
+
+
+WorkloadBonusProf(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  nombreSession: Integer
+  prix: BigDecimal
+
+VocabularyQuiz(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  libelle: String REF_REQUIERED
+  dateDebut: Date
+  dateFin: Date
+  vocabularies: Vocabulary List
+  section: Section
+
+Vocabulary(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  numero: Long
+  word: String
+  libelle: String
+  result: String
+  explication: String
+  exemple: String
+  image: String
+  section: Section
+  vocabularyQuiz: VocabularyQuiz
+
+
+TypeTeacher(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  libelle: String REF_REQUIERED
+
+
+TypeReclamationProf(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String
+
+
+TypeReclamationEtudiant(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String
+
+
+TypeHomeWork(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  lib: String
+
+
+TypeDeQuestion(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  lib: String
+
+
+TrancheHoraireProf(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  prof: Prof
+  startHour: String
+  endHour: String
+  day: Integer
+  groupIndex: Integer
+  profsId: Long
+
+
+SuperCategorieSection(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String
+  categorieSections: CategorieSection List
+
+
+StatutSocial(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String
+
+
+Skill(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String
+
+
+SessionCours(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  reference: String REF_REQUIERED
+  prof: Prof
+  cours: Cours
+  groupeEtudiant: GroupeEtudiant
+  duree: BigDecimal
+  totalheure: BigDecimal
+  mois: BigDecimal
+  annee: BigDecimal
+  dateFin: Date
+  dateDebut: Date
+  payer: Boolean
+  salary: Salary
+  sections: Section List
+
+
+SectionItem(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  imageUrl: String
+  response: String
+  transcription: String
+  translation: String
+  explanation: String
+  example: String
+  synonyms: String
+  section: Section
+
+Section(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String
+  urlImage: String
+  urlImage2: String
+  urlImage3: String
+  urlVideo: String
+  contenu: String
+  questions: String
+  indicationProf: String
+  numeroOrder: Integer
+  categorieSection: CategorieSection
+  cours: Cours
+  url: Integer
+  content: Integer
+  sectionItems: SectionItem List
+  sessionCours: SessionCours
+
+
+ScheduleProf(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  subject: String
+  startTime: Date
+  endTime: Date
+  ref: String
+  groupeEtudiant: GroupeEtudiant
+  prof: Prof
+  cours: Cours
+  grpName: String
+  profName: String
+  profsId: Long
+
+
+Salary(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  prof: Prof
+  mois: Integer
+  annee: Integer
+  nbrSessionMensuel: BigDecimal
+  payer: Boolean
+  totalPayment: BigDecimal
+  totalBonusClassAverage: BigDecimal
+  totalBonusWorkload: BigDecimal
+
+
+ReponseEtudiantHomeWork(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  reponse: HoweWorkQSTReponse
+  answer: String
+  homeWorkEtudiant: HomeWorkEtudiant
+  question: HomeWorkQuestion
+  profNote: String
+  note: BigDecimal
+
+
+ReponseEtudiant(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  reponse: Reponse
+  answer: String
+  quizEtudiant: QuizEtudiant
+  note: BigDecimal
+  question: Question
+
+
+Reponse(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  lib: String
+  etatReponse: String
+  numero: Long
+  question: Question
+
+RecommendTeacher(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  nombrevote: Integer
+  nom: String
+  prenom: String
+  commentaire: String
+  telephone: String
+  login: String
+  dateRecommamdation: Date
+  prof: Prof
+
+ReclamationProf(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  reference: String REF_REQUIERED
+  dateReclamation: Date
+  message: String
+  traite: Boolean
+  dateTraitement: Date
+  dateReponse: Date
+  postView: Boolean
+  commentaireTraiteur: String
+  objetReclamationProf: String
+  admin: Admin
+  prof: Prof
+  typeReclamationProf: TypeReclamationProf
+
+
+ReclamationEtudiant(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  reference: String REF_REQUIERED
+  dateReclamation: Date
+  message: String
+  setFrom: String
+  img: String
+  traite: Boolean
+  dateTraitement: Date
+  dateReponse: Date
+  postView: Boolean
+  objetReclamationEtudiant: String
+  commentaireTraiteur: String
+  username: String
+  typeReclamationEtudiant: TypeReclamationEtudiant
+
+
+QuizEtudiant(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  etudiant: Etudiant
+  quiz: Quiz
+  reponseEtudiants: ReponseEtudiant List !!! bean non existing
+  note: BigDecimal
+  resultat: String
+  questionCurrent: Long
+
+
+QuizClassRoom(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  classRoom: ClassRoom
+  quiz: Quiz
+
+
+Quiz(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  lib: String
+  dateDebut: Date
+  dateFin: Date
+  questions: Question List
+  quizEtudiant: QuizEtudiant List
+  section: Section
+  numero: Long
+  seuilReussite: Long
+
+
+Question(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  libelle: String
+  urlImg: String
+  urlVideo: String
+  numero: Long
+  pointReponseJuste: BigDecimal
+  pointReponsefausse: BigDecimal
+  typeDeQuestion: TypeDeQuestion
+  reponses: Reponse List
+  quiz: Quiz
+  homeWork: HomeWork
+
+
+ProfReview(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  etudiant: Etudiant
+  prof: Prof
+  cours: Cours
+  review: Integer
+  comment: String
+  dateReview: Date
+
+
+Prof(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  ref: String REF_REQUIERED
+  about: String
+  email: String
+  levelMin: Parcours
+  levelMax: Parcours
+  trancheHoraireProfList: TrancheHoraireProf List
+  categorieProf: CategorieProf
+  classRooms: ClassRoom List
+  recommendTeacher: RecommendTeacher List
+  typeTeacher: TypeTeacher
+
+
+
+Price(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  price: BigDecimal
+  oldPrice: BigDecimal
+  lib: String
+  nreCourse: BigDecimal
+  nreHours: BigDecimal
+  nreMonth: BigDecimal
+  forGroup: Boolean
+
+
+Parcours(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  datePublication: Date
+  dateCreation: Date
+  description: String
+  code: String REF_REQUIERED
+  libelle: String
+  courses: Cours List
+  numeroOrder: Integer
+  nombreCours: Integer
+  centre: Centre
+  etudiants: Etudiant List
+
+
+Paiement(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  prof: Prof
+  datePaiement: Date
+  groupeEtudiant: GroupeEtudiant
+
+
+PackStudent(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  nombreCours: Integer
+  forGroupe: Boolean
+  code: String REF_REQUIERED
+  libelle: String
+  description: String
+  preRequisites: String
+  whyTakeThisCourse: String
+  expectations: String
+  level: Parcours
+  imgUrl: String
+  price: Price
+  totalStudents: Integer
+  rating: String
+  oldPrice: String
+
+
+
+NiveauEtude(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String
+
+
+
+News(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  libelle: String
+  image: String
+  description: String
+  date: Date
+  dateDebut: Date
+  dateFin: Date
+  numeroOrdre: Integer
+  destinataire: String
+
+
+
+LevelTestConfiguration(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  noteMin: BigDecimal
+  noteMax: BigDecimal
+  parcours: Parcours
+
+
+
+InviteStudent(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  etudiant: Etudiant
+  isAccepted: Boolean
+  isPaidPack: Boolean
+  emailInvited: String
+  dateSentInvitation: Date
+  dateAcceptInvitation: Date
+  datePayPack: Date
+
+
+InteretEtudiant(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String
+
+
+Inscription(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  numeroInscription: Integer
+  etudiant: Etudiant
+  etatInscription: EtatInscription
+  parcours: Parcours
+  groupeEtude: GroupeEtude
+  statutSocial: StatutSocial
+  interetEtudiant: InteretEtudiant
+  niveauEtude: NiveauEtude
+  fonction: Fonction
+  quizNiveau: Quiz
+  noteQuizNiveau: BigDecimal
+  quizFinished: Boolean
+  dateRegistration: String
+  datedebutinscription: Date
+  datefininscription: Date
+  packStudent: PackStudent
+  skill: Skill
+  skype: String
+
+
+HoweWorkQSTReponse(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  lib: String
+  etatReponse: String
+  numero: Integer
+  homeWorkQuestion: HomeWorkQuestion
+
+
+HomeWorkQuestion(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  libelle: String
+  numero: Integer
+  pointReponseJuste: BigDecimal
+  pointReponsefausse: BigDecimal
+  typeDeQuestion: TypeDeQuestion
+  reponses: HoweWorkQSTReponse List
+  homeWork: HomeWork
+
+
+HomeWorkEtudiant(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  etudiant: Etudiant
+  homeWork: HomeWork
+  reponseEtudiantHomeWork: ReponseEtudiantHomeWork List
+  note: BigDecimal
+  resultat: String
+  date: Date
+
+
+HomeWork(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  libelle: String
+  urlImage: String
+  urlVideo: String
+  questions: HomeWorkQuestion List
+  homeWorkEtudiant: HomeWorkEtudiant List
+  cours: Cours
+  typeHomeWork: TypeHomeWork
+
+
+GroupeEtudiantDetail(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  groupeEtudiant: GroupeEtudiant
+  etudiant: Etudiant
+
+
+GroupeEtudiant(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  libelle: String
+  niveau: String
+  dateDebut: Date
+  dateFin: Date
+  nombrePlace: Long
+  nombrePlacevide: Long
+  nombrePlaceNonVide: Long
+  groupeEtudiantDetails: GroupeEtudiantDetail List
+  groupeEtude: GroupeEtude
+  parcours: Parcours
+  prof: Prof
+
+
+GroupeEtude(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  libelle: String
+  description: String
+  nombreEtudiant: Long
+
+
+
+FreeTrialformule(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  inscription: Inscription
+  dayspeerweek: String
+  timeperday: String
+  teacherGenderoption: String
+  teacherAgeRange: String
+  teacherPersonnality: String
+  status: Boolean
+  dateConfirmation: Date
+
+
+Fonction(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String
+
+
+
+FaqType(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  destinataire: String
+  libelle: String
+  faq: Faq List
+
+
+
+FaqProf(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  description: String
+  libelle: String
+  prof: Prof
+  admin: Admin
+  faqType: FaqType
+
+
+
+FaqEtudiant(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  description: String
+  libelle: String
+  etudiant: Etudiant
+  admin: Admin
+  faqType: FaqType
+
+
+
+Faq(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  description: String
+  libelle: String
+  faqType: FaqType
+
+
+EtudiantReview(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  etudiant: Etudiant
+  prof: Prof
+  cours: Cours
+  review: Integer
+  comment: String
+  dateReview: Date
+
+EtudiantCours(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  etudiant: Etudiant
+  prof: Prof
+  cours: Cours
+  payer: Boolean
+  dateFin: Date
+
+
+EtudiantClassRoom(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  classRoom: ClassRoom
+  etudiant: Etudiant
+
+
+Etudiant(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  ref: String REF_REQUIERED
+  teacherLocality: String
+  groupOption: String
+  email: String
+  etatEtudiantSchedule: EtatEtudiantSchedule
+  parcours: Parcours
+  quizEtudiant: QuizEtudiant List
+  groupeEtude: GroupeEtude
+  groupeEtudiantDetails: GroupeEtudiantDetail List
+  packStudent: PackStudent
+  statutSocial: StatutSocial
+  interetEtudiant: InteretEtudiant
+  niveauEtude: NiveauEtude
+  skill: Skill
+  fonction: Fonction
+  langue: String
+
+
+EtatInscription(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  libelle: String
+
+
+EtatEtudiantSchedule(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  libelle: String
+  couleur: String
+
+
+EtatEtudiant(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  reference: String REF_REQUIERED
+  username: String
+  firstName: String
+  lastName: String
+  nationnalité: String
+  schedule1: String
+  schedule2: String
+  lastClass: String
+  nbr_class: String
+  etat: String
+  etatNumber: Long
+
+
+Dictionary(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  word: String
+  definition: String
+  etudiant: Etudiant
+
+
+
+Cours(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String
+  description: String
+  image: String
+  etatCours: String
+  parcours: Parcours
+  sections: Section List
+  homeWorkList: HomeWork List
+  nombreSectionFinalise: Integer
+  nombreSectionEnCours: Integer
+  nombreLinkEnCours: Integer
+  nombreLinkFinalise: Integer
+  numeroOrder: Integer
+
+
+
+Contact(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  name: String
+  email: String
+  phone: String
+  setFrom: String
+  date: Date
+  replied: Boolean ! =false
+  message: String
+
+
+ConfirmationToken(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  token: String
+  expiresAt: LocalDateTime
+  createdAt: LocalDateTime
+  confirmedAt: LocalDateTime
+  user: Etudiant
+
+
+ClassRoom(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  libelle: String
+  description: String
+  responsable: Prof
+  etudiantClassRooms: EtudiantClassRoom List
+  quizClassRooms: QuizClassRoom List
+
+
+ClassAverageBonusProf(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  prof: Prof
+  mois: Integer
+  annee: Integer
+  salary: Salary
+
+
+ClassAverageBonus(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  nombreSession: Integer
+  prix: BigDecimal
+
+
+Centre(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  libelle: String
+  description: String
+  log: String
+  password: String
+  parcourss: Parcours List
+
+CategorieSection(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String
+  numeroOrder: Integer
+  superCategorieSection: SuperCategorieSection
+  sections: Section List
+
+
+CategorieProf(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  code: String REF_REQUIERED
+  level: String
+  lessonRate: BigDecimal
+  profs: Prof List
+
+
+CalendrierProf(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  ref: String REF_REQUIERED
+  startTime: String
+  endTime: String
+  startRecur: Date
+  endRecur: Date
+  prof: Prof
+  etudiant: Etudiant
+
+
+#-----------------------------------------------------------------------------
+FreeTrial_IMPORT_MS(ms1)_ROLES(admin)_Process(save)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  reference: String REF_REQUIERED
+  prof: Prof
+  niveauEtude: NiveauEtude
+  dateFreeTrial: LocalDateTime
+  link: String
+
+  emailTeacherSent: Boolean
+  emailTeacherSendingDate: LocalDateTime
+  whatsTeacherSent: Boolean
+  whatsTeacherSendingDate: LocalDateTime
+
+  freeTrialStudentWhatsTemplate: FreeTrialStudentWhatsTemplate
+  freeTrialStudentEmailTemplate: FreeTrialStudentEmailTemplate
+  freeTrialTeacherEmailTemplate: FreeTrialTeacherEmailTemplate
+  freeTrialTeacherWhatsTemplate: FreeTrialTeacherWhatsTemplate
+  dateFreeTrialPremierRappel: LocalDateTime
+  dateFreeTrialPremierDeuxiemeRappel: LocalDateTime
+
+  nombreStudentTotal: Integer
+  freeTrialConfiguration: FreeTrialConfiguration
+  nombreStudentAbonne: Integer
+  nombreStudentPresent: Integer
+  statutFreeTrial: StatutFreeTrial
+  freeTrialDetails: FreeTrialDetail List
+
+
+FreeTrialDetail_IMPORT_MS(ms1)_ROLES(admin)_Process(save)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  freeTrial: FreeTrial
+  etudiant: Etudiant
+  presence: Boolean
+  whatsUpMessageSent: Boolean
+  dateEnvoiwhatsUpMessage: LocalDateTime
+  emailMessageSent: Boolean
+  dateEnvoiEmailMessage: LocalDateTime
+  abonne: Boolean
+
+FreeTrialStudentEmailTemplate_IMPORT_INITIALISATION_MS(ms1)_ROLES(admin)_Process(save)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  object: String
+  corps: String LARGE
+  source: String
+
+FreeTrialStudentWhatsTemplate_IMPORT_INITIALISATION_MS(ms1)_ROLES(admin)_Process(save)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  object: String
+  corps: String LARGE
+  source: String
+
+FreeTrialTeacherEmailTemplate_IMPORT_INITIALISATION_MS(ms1)_ROLES(admin)_Process(save)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  object: String
+  corps: String LARGE
+  source: String
+
+FreeTrialTeacherWhatsTemplate_IMPORT_INITIALISATION_MS(ms1)_ROLES(admin)_Process(save)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  object: String
+  corps: String LARGE
+  source: String
+
+FreeTrialConfiguration_IMPORT_INITIALISATION_MS(ms1)_ROLES(admin)_Process(save)_SUB-MODULE(repas)_MENU(Gestion Commande):
+  id: Long ID
+  dateApplicationDebut: LocalDateTime
+  dateApplicationFin: LocalDateTime
+  nombreStudentMax: Integer
+  nombreStudentMin: Integer
+
+
+StatutFreeTrial_IMPORT_MS(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Configuration):
+  id: Long ID
+  libelle: String LABEL_REQUIERED
+  code: String REF_REQUIERED
+  style: String
+
+
+Prof_IMPORT_MS(ms1)_INITIALISATION_ROLES(admin)_SUB-MODULE(repas)_MENU(Configuration):
+  id: Long ID
+  ref: String REF_REQUIERED
+
+NiveauEtude_IMPORT_MS(ms1)_ROLES(admin)_SUB-MODULE(repas)_MENU(Configuration):
+  id: Long ID
+  libelle: String LABEL_REQUIERED
+  code: String REF_REQUIERED
+
+Etudiant_IMPORT_MS(ms1)_INITIALISATION_ROLES(admin)_SUB-MODULE(repas)_MENU(Configuration):
+  id: Long ID
+  ref: String REF_REQUIERED
+
+Services_REFERENTIEL_IMPORT_MS(ms1)_ROLES(admin)_SUB-MODULE(hopital)_MENU(Hopital Management):
+  id: Long ID
+  code: String REF_REQUIERED
+  libelle: String LABEL_REQUIERED
+  description: String LARGE
+
+$CONFIG:
+  ms: "{name=ms1, packaging=myms1, url=http://localhost:8090/api/v1}"
+  currentMs: ms1
+
+

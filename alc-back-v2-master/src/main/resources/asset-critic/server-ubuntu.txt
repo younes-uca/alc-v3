@@ -1,0 +1,67 @@
+
+				==================================================================================================================================
+															SERVER MYSQL LUNIX
+															
+															IP: 162.19.25.141
+															Nom d'utilisateur : ubuntu
+															Mot de passe :      WNaJyDJRFcmt
+				==================================================================================================================================
+				
+				
+				
+				==============================================  BACK ================================================================================
+				
+				1- PULL PROJET : 
+					+- cd "/home/ubuntu/engFlexy/alc-back-v2"
+					+- sudo git pull https://github.com/younes-uca/alc-back-v2
+					+- sudo mvn clean package
+					+- run 
+						I- java -jar "/home/ubuntu/engFlexy/alc-back-v2/target/demo-0.0.1-SNAPSHOT.jar"
+						important stop service engflexyback.service first
+						[in case of error: fuser -k 8036/tcp (to kill the process)]
+											
+															OU
+																													
+						I-  run engflexyback.service ^^^^voir line 40 pour commandes (3eme etape)
+				
+				2- EN CAS D'ERROR
+				   
+				
+					i- move to parent folder ==> cd "/home/ubuntu/engFlexy/" 
+					
+					ii- remove exist project ===> sudo rm -rf alc-back-v2
+					
+					iii- clone project => +++ sudo git clone https://github.com/younes-uca/alc-back-v2
+					
+					iiii- move to project folder ==> cd "/home/ubuntu/engFlexy/alc-back-v2" 
+					
+					iiii- run ==> mvn clean package
+					
+					
+					
+					
+				3- ENGFLEXYBACK.SERVICE
+				
+					- important {
+						normalement project run as service, les commandes pour gerer cette service :
+							
+							1-stop: premier commande 
+							
+								'sudo systemctl stop engflexyback' 
+								
+								
+							2- start: 
+								sudo systemctl enable engflexyback.service 
+								sudo systemctl start engflexyback 
+								sudo systemctl status engflexyback 
+					}
+				
+				
+				
+				==============================================  FRONT ================================================================================
+				
+				
+				1- deployer projet : ng build --prod
+				 
+				2- telecharger WinSCP pour copier "C:\Users\hp\WebstormProjects\Application\alc-front-v2\dist\roma"  vers /var/www/engflexy 
+				voir image sous nom  deployer-front.png
